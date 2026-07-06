@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>EMI Calculator</title>
+
+<script>
+
+function calculateEMI(){
+
+var p=document.getElementById("amount").value;
+
+var r=document.getElementById("rate").value/12/100;
+
+var n=document.getElementById("years").value*12;
+
+var emi=(p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+
+document.getElementById("result").innerHTML="Monthly EMI = "+emi.toFixed(2);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Loan Application</h2>
+
+<form onsubmit="calculateEMI(); return false;">
+
+Name:
+
+<input type="text"><br><br>
+
+Occupation:
+
+<input type="text"><br><br>
+
+Loan Amount:
+
+<input type="number" id="amount"><br><br>
+
+Rate of Interest:
+
+<input type="number" id="rate"><br><br>
+
+Tenure (Years):
+
+<input type="number" id="years"><br><br>
+
+<input type="submit" value="Calculate EMI">
+
+</form>
+
+<h3 id="result"></h3>
+
+</body>
+
+</html>
